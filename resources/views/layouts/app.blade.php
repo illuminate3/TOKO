@@ -26,6 +26,10 @@
     </style-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.structure.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
@@ -49,7 +53,11 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                    <li><a href="{{ url('/product/cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                    @role('admin')
+                    <li><a href="{{ route('admin.products.index') }}">Product</a></li>
+                    <li><a href="{{-- route('admin.books.index') --}}">Laporan Transaksi</a></li>
+                    @endrole
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -74,6 +82,7 @@
         </div>
     </nav>
 
+    @include('layouts._flash')        
     @yield('content')
 
     <!-- JavaScripts >
@@ -82,6 +91,7 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>
