@@ -157,6 +157,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         \Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Bestmomo\Installer\InstallerServiceProvider::class,
 
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
