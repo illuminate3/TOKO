@@ -56,7 +56,7 @@
                     <li><a href="{{ url('/product/cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                     @role('admin')
                     <li><a href="{{ route('admin.products.index') }}">Product</a></li>
-                    <li><a href="{{-- route('admin.books.index') --}}">Laporan Transaksi</a></li>
+                    <li><a href="{{ url('/admin/report') }}">Laporan Transaksi</a></li>
                     @endrole
                 </ul>
 

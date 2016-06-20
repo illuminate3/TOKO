@@ -32,6 +32,6 @@ Route::auth();
 Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function() {
 	//route admin
 	Route::resource('products', 'ProductsController');
-	Route::get('laporan', 'ReportController@index');
-	Route::post('laporan/periode',['as' => 'laporan.show', 'uses' => 'ReportController@getPeriode']);
+	Route::get('report', 'ReportController@index');
+	Route::post('report/periode',['as' => 'report.show', 'uses' => 'ReportController@getPeriode']);
 });
