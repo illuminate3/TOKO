@@ -4,9 +4,43 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e77fc0b7b66cb6b8e199c91873e7321b",
-    "content-hash": "8e8e97cc962642ac7675dedc74da1130",
+    "hash": "a97f76137a61bae356d6825d0f3cd61f",
+    "content-hash": "c46fe946a3cb5e119c0d12de4587a94a",
     "packages": [
+        {
+            "name": "bestmomo/laravel-installer",
+            "version": "V0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bestmomo/laravel-installer.git",
+                "reference": "53234f9543a1763cfc44f5f27023fec32e224fc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bestmomo/laravel-installer/zipball/53234f9543a1763cfc44f5f27023fec32e224fc2",
+                "reference": "53234f9543a1763cfc44f5f27023fec32e224fc2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bestmomo\\Installer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bestmomo",
+                    "email": "grandheretique@free.fr"
+                }
+            ],
+            "description": "Helper for Laravel 5.2 application installation",
+            "homepage": "http://github.com/bestmomo/laravel-installer",
+            "time": "2016-02-14 16:31:55"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
