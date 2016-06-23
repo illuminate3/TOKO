@@ -34,4 +34,5 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function
 	Route::resource('products', 'ProductsController');
 	Route::get('report', 'ReportController@index');
 	Route::post('report/periode',['as' => 'report.show', 'uses' => 'ReportController@getPeriode']);
+	Route::get('invoice/{formid}', 'TokoController@viewInvoice');
 });

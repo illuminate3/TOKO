@@ -68,7 +68,11 @@ class TokoController extends Controller
 	public function checkout() {
 		$formid       = md5(time());
 		$cart_content = Cart::content(1);
-		$subtotal	  = 'Rp '.Cart::total(2, ',', '.');
+		if (\Entrust::hasRole('member')) {
+			$subtotal	  = 'Rp '.Cart::subtotal(2, ',', '.');
+		} else {
+			$subtotal	  = 'Rp '.Cart::total(2, ',', '.');
+		}
 
 		foreach ($cart_content as $cart) {
 
@@ -109,6 +113,17 @@ class TokoController extends Controller
             "level"=>"success",
             "message"=>"Terima kasih telah berbelanja. Silakan kirim uang sesuai invoice, kami akan mengkonfirmasi dan memproses pengiriman."
         ]);
+		
+		return view('toko.invoice', compact('notrans', 'transaction', 'customer'));
+	}
+
+	public function viewInvoice($formid) {
+
+		$notrans = Transaction::where('formid', '=', $formid )->first();
+		
+		$transaction = Transaction::where('formid', '=', $formid)->get();
+		
+		$customer = Customer::where('formid', '=', $formid)->first();
 		
 		return view('toko.invoice', compact('notrans', 'transaction', 'customer'));
 	}

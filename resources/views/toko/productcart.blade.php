@@ -38,9 +38,17 @@
 					<tr>
 						<td class="highrow"></td>
 						<td class="highrow"></td>
-						<td ><strong>Subtotal</strong></td>
+						@if(\Entrust::hasRole('member'))
+							<td><strong>Subtotal (discount 5%)</strong></td>
+						@else
+							<td><strong>Subtotal</strong></td>
+						@endif
 						<td class="highrow"></td>
-						<td ><strong>{{ "Rp ".Cart::total(2, ',', '.') }}</strong></td>
+						@if(\Entrust::hasRole('member'))
+							<td><strong>{{ "Rp ".Cart::subtotal(2, ',', '.') }}</strong></td>
+						@else
+							<td><strong>{{ "Rp ".Cart::total(2, ',', '.') }}</strong></td>
+						@endif
 						<td class="highrow"></td>
 					</tr>
 				</tbody>
