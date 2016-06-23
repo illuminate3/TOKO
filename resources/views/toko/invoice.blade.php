@@ -55,7 +55,12 @@
                                 <tr>
                                     <td class="highrow"></td>
                                     <td class="highrow"></td>
-                                    <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                    @if(\Entrust::hasRole('member'))
+                                        <td class="highrow text-center"><strong>Subtotal (member discount 5%)</strong></td>
+                                    @else
+                                        <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                    @endif
+                                    
                                     <td class="highrow text-center">{{ $notrans->subtotal }}</td>
                                 </tr>
                             </tbody>

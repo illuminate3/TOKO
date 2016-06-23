@@ -12,12 +12,12 @@
 						<tr><th>Invoice</th><th>Tanggal</th><th>Nama Produk</th><th>Harga</th><th>Qty</th><th>Total</th></tr>
 						@foreach( $transaction as $list )
 						<tr>
-							<td>{{ $list->formid }}</td>
+							<td><a href="{!! url('admin/invoice/'.$list->formid) !!}">{{ $list->formid }}</a></td>
 							<td>{{ $list->tanggal }}</td>
 							<td>{{ $list->product->name }}</td>
-							<td>{{ $list->product->price }}</td>
+							<td>{{ "Rp ".number_format($list->product->price,2, ',', '.') }}</td>
 							<td>{{ $list->qty }}</td>
-							<td>{{ $list->total_price }}</td>
+							<td>{{ "Rp ".number_format($list->total_price,2, ',', '.') }}</td>
 						</tr>
 						@endforeach
 					</table>
